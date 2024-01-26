@@ -5,7 +5,7 @@ const OrderSchema = new Schema(
       type: String,
       required: true,
     },
-    producsts: [
+    products: [
       {
         productId: {
           type: String,
@@ -14,11 +14,11 @@ const OrderSchema = new Schema(
           type: Number,
           default: 1,
         },
-        amount: { type: String, required: true },
-        address: { type: Object, required: true },
-        status: { type: String, default: "pending" },
       },
     ],
+    amount: { type: String, required: true },
+    address: { type: Object, required: true },
+    status: { type: String, default: "pending" },
   },
   { timestamps: true }
 );

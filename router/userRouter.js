@@ -2,7 +2,7 @@ import express from "express";
 import User from "../db/modals/userModal.js";
 import httpStatus from "http-status";
 import CryptoJs from "crypto-js";
-import { verifyTokenAndAuthorization } from "./middleware/verifyToken.js";
+import { verifyTokenAndAuthorization } from "./middleware/index.js";
 
 const userRouter = express.Router();
 

@@ -1,7 +1,7 @@
 import express from "express";
 import Product from "./../db/modals/productModal.js";
 import httpStatus from "http-status";
-import { verifyTokenAndAdmin } from "./middleware/verifyToken.js";
+import { verifyTokenAndAdmin } from "./middleware/index.js";
 
 const productRouter = express.Router();
 

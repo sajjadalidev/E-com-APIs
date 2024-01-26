@@ -3,17 +3,23 @@ import jwt from "jsonwebtoken";
 
 // Middleware
 export const verifyToken = (req, res, next) => {
-  const authHeader = req.headers.token;
+  const authHeader = req.headers.authorization;
+
   if (authHeader) {
     const token = authHeader.split(" ")[1];
     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
-      if (err)
-        res.status(httpStatus.UNAUTHORIZED).json("You are not authorized!");
+      if (err) {
+        return res
+          .status(httpStatus.UNAUTHORIZED)
+          .json({ message: "You are not authorized!" });
+      }
       req.user = user;
       next();
     });
   } else {
-    return res.status(httpStatus.UNAUTHORIZED).json("You are not authorized!");
+    return res
+      .status(httpStatus.UNAUTHORIZED)
+      .json({ message: "You are not authorized!" });
   }
 };
 
